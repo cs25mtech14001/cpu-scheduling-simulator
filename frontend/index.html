@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CPU Scheduling Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <p class="eyebrow">OPERATING SYSTEMS • CPU SCHEDULING</p>
+      <h1>CPU Scheduling Simulator</h1>
+      <p>Compare scheduling policies, inspect execution timelines, and analyze waiting and turnaround time.</p>
+    </header>
+
+    <section class="card">
+      <form id="schedulerForm">
+        <div class="controls">
+          <label>
+            Scheduling Algorithm
+            <select id="algorithm">
+              <option value="fcfs">First Come First Serve (FCFS)</option>
+              <option value="sjf">Shortest Job First (SJF)</option>
+              <option value="srtf">Shortest Remaining Time First (SRTF)</option>
+              <option value="priority">Priority Scheduling</option>
+              <option value="rr">Round Robin (RR)</option>
+              <option value="hrrn">Highest Response Ratio Next (HRRN)</option>
+              <option value="mqs">Multilevel Queue (MQS)</option>
+              <option value="mlfq">Multilevel Feedback Queue (MLFQ)</option>
+              <option value="ljf">Longest Job First (LJF)</option>
+              <option value="lrtf">Longest Remaining Time First (LRTF)</option>
+            </select>
+          </label>
+
+          <label>
+            Time Quantum
+            <input type="number" id="quantum" min="1" value="2" />
+          </label>
+        </div>
+
+        <div class="section-heading">
+          <div>
+            <h2>Processes</h2>
+            <p>Provide arrival time, burst time, and priority where applicable.</p>
+          </div>
+          <button type="button" class="secondary" id="addProcess">+ Add Process</button>
+        </div>
+
+        <div class="table-wrap">
+          <table id="processTable">
+            <thead>
+              <tr>
+                <th>PID</th><th>Arrival</th><th>Burst</th><th>Priority</th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input name="pid" value="P1" /></td>
+                <td><input name="arrival" value="0" type="number" min="0" /></td>
+                <td><input name="burst" value="5" type="number" min="1" /></td>
+                <td><input name="priority" value="2" type="number" min="0" /></td>
+                <td><button type="button" class="icon-button remove-process" title="Remove process">×</button></td>
+              </tr>
+              <tr>
+                <td><input name="pid" value="P2" /></td>
+                <td><input name="arrival" value="1" type="number" min="0" /></td>
+                <td><input name="burst" value="3" type="number" min="1" /></td>
+                <td><input name="priority" value="1" type="number" min="0" /></td>
+                <td><button type="button" class="icon-button remove-process" title="Remove process">×</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <button type="submit" class="primary" id="runButton">Run Simulation</button>
+        <p id="errorMessage" class="error" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="outputSection" class="results" hidden>
+      <div class="section-heading">
+        <div>
+          <h2>Simulation Results</h2>
+          <p id="algorithmLabel"></p>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <article class="metric"><span>Average Waiting</span><strong id="avgWaiting">—</strong></article>
+        <article class="metric"><span>Average Turnaround</span><strong id="avgTurnaround">—</strong></article>
+        <article class="metric"><span>Processes</span><strong id="processCount">—</strong></article>
+      </div>
+
+      <div class="card">
+        <h3>Execution Timeline</h3>
+        <div id="ganttChart" class="gantt"></div>
+      </div>
+
+      <div class="card">
+        <h3>Process Metrics</h3>
+        <div class="table-wrap">
+          <table id="resultsTable">
+            <thead>
+              <tr>
+                <th>PID</th><th>Arrival</th><th>Burst</th><th>Completion</th>
+                <th>Turnaround</th><th>Waiting</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

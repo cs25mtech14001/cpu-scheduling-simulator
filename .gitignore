@@ -1,0 +1,28 @@
+# Node
+server/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# C/C++ build artifacts
+backend/fcfs
+backend/sjf
+backend/srtf
+backend/rr
+backend/priority
+backend/hrrn
+backend/mqs
+backend/mlfq
+backend/ljf
+backend/lrtf
+backend/*.o
+*.dSYM/
+*.out
+
+# Runtime output
+data/output.json
+
+# Editor / OS
+.vscode/
+.DS_Store
+Thumbs.db

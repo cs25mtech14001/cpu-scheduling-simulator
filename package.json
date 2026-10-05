@@ -1,0 +1,12 @@
+{
+  "name": "cpu-scheduler-simulator",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Interactive CPU scheduling simulator with a C++ scheduling engine and Node.js web interface.",
+  "scripts": {
+    "start": "npm --prefix server start",
+    "build": "make",
+    "test": "bash tests/test_algorithms.sh",
+    "demo": "python3 tests/verify_algorithms.py"
+  }
+}
