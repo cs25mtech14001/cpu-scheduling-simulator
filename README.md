@@ -134,15 +134,4 @@ The implementation uses different ready-queue strategies depending on the policy
 
 Actual runtime depends on workload size and the scheduling policy; benchmark claims should be added only after measuring them.
 
-## Resume-Oriented Description
 
-Use only the bullets that accurately describe **your own contribution**:
-
-- Developed an interactive **CPU scheduling simulator in C++** supporting 10 scheduling policies and computing completion, waiting, and turnaround-time metrics.
-- Implemented ready-queue management using **FIFO queues and priority queues**, including preemptive and non-preemptive scheduling behavior.
-- Integrated the C++ scheduling engine with a **Node.js/Express REST API** using JSON for process configuration and execution results.
-- Built a browser-based visualization layer that renders **CPU execution timelines as Gantt charts** and presents process-level scheduling metrics.
-
-## Note on Attribution
-
-If this repository is based on an existing implementation, preserve the original project's attribution/license requirements and describe your work as an **extension or enhancement** unless you independently implemented the corresponding components. Do not add performance or user-study numbers unless you have actually measured them.
